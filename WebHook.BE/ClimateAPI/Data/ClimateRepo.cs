@@ -71,8 +71,8 @@ namespace ClimateAPI.Data
                     Area = entity.Area,
                     NewTemp = entity.Temp,
                     OldTemp = oldTemp,
-                    Publisher = "ClimateAPI",
-                    WebHookType = "ClimateUpdate"
+                    Publisher = "indcli",
+                    WebHookType = "pricechange"
                 };
                 _messageBus.publish(webHookWorkerDto);
             }

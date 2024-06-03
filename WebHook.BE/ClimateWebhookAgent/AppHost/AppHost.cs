@@ -57,6 +57,12 @@ namespace ClimateWebhookAgent.AppHost
                 }
             };
 
+            channel.BasicConsume(queue: queueName,
+                                   autoAck: true,
+                                  consumer: consumer);
+
+            Console.ReadLine();
+
           
         }
 
