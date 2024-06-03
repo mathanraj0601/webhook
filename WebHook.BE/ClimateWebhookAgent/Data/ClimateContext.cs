@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ClimateWebhookAgent.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,7 @@ namespace ClimateWebhookAgent.Data
     public class ClimateContext : DbContext
     {
         public ClimateContext(DbContextOptions options):base(options){}
+
+        public DbSet<Subscriber>? Subscribers { get; set; }
     }
 }

@@ -11,6 +11,7 @@ var host = Host.CreateDefaultBuilder().ConfigureServices((context, service) => {
     {
         options.UseSqlServer(context.Configuration.GetConnectionString("myConn"));
     });
+    service.AddHttpClient();
 }).Build();
 
 var appHost = host.Services.GetRequiredService<IAppHost>();
