@@ -2,11 +2,13 @@
 using ClimateAPI.Data;
 using ClimateAPI.Model;
 using ClimateAPI.Model.DTO;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClimateAPI.Controllers
 {
+    [EnableCors("MyCors")]
     [Route("api/[controller]")]
     [ApiController]
     public class SubscriberController : ControllerBase
@@ -47,6 +49,7 @@ namespace ClimateAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<SubscriberResponseDto>> Add([FromBody] SubscriberCreateDto subscriberCreateDto)
         {
+            subscriberCreateDto.Secret = Guid.NewGuid();
             var subscriber = _mapper.Map<Subscriber>(subscriberCreateDto);
             var result = await _repo.Add(subscriber);
             var subscriberReponse = _mapper.Map<Subscriber>(result);
