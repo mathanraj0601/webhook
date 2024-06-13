@@ -1,0 +1,88 @@
+.app-container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.app {
+  background-color: white;
+  height: 400px;
+}
+
+.app-header {
+  text-align: center;
+}
+
+.app-body {
+  text-align: center;
+}
+
+.success {
+  background-color: #90ee90;
+  width: 600px;
+  text-align: center;
+  padding: 0.5rem;
+  opacity: 0.5;
+}
+
+.app-input {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 600px;
+  justify-content: center;
+}
+
+.app-select > label {
+  font-weight: 600;
+  text-align: left;
+}
+
+.app-select > select {
+  font-size: medium;
+  width: 560px;
+  text-align: center;
+  height: 35px;
+  padding: 0.2rem;
+}
+
+.app-submit {
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-submit > input {
+  width: 400px;
+  height: 30px;
+  font-size: large;
+  border: 2px solid green;
+  padding: 0rem 0.2rem;
+}
+
+.app-submit > input:focus {
+  outline: none;
+}
+
+.app-submit > button {
+  border: 1px solid green;
+  width: 150px;
+  height: 33px;
+  font-size: medium;
+  border: none;
+  background-color: green;
+  color: white;
+  font-weight: 600;
+  padding: 0.2rem 0.2rem;
+  cursor: pointer;
+}

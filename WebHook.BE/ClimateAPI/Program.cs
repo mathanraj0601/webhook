@@ -27,6 +27,18 @@ builder.Services.AddScoped<IRepo<Subscriber, int>, SubscriberRepo>();
 
 // Message bus
 builder.Services.AddScoped<IMessageBus, MessageBus>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MyCors",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -41,6 +53,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("MyCors");
 app.UseAuthorization();
 
 app.UseMiddleware<GlobalExceptionHandlingMiddleware>();

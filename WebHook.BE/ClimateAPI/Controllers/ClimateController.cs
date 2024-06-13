@@ -48,6 +48,7 @@ namespace ClimateAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<ClimateResponseDto>> Add([FromBody] ClimateCreateDto climateCreateDto)
         {
+
             var climate = _mapper.Map<Climate>(climateCreateDto);
             var result = await _repo.Add(climate);
             var climateReponse = _mapper.Map<Climate>(result);
