@@ -34,7 +34,7 @@ namespace AgentAPI.Controllers
             }
             else
             {
-                Console.WriteLine($"Area : {climateWebHookDto.Area} ,  New Price : {climateWebHookDto.NewPrice}");
+                Console.WriteLine($"Area : {climateWebHookDto.Area} ,  New Price : {climateWebHookDto.NewTemp}");
                 Console.WriteLine("Valid Webhook");
                 return Ok();
             }
