@@ -10,7 +10,11 @@ function App() {
   const [option, setOption] = useState(0);
   const [sucess, setSucess] = useState(false);
   const [secretCode, setSecretCode] = useState("");
-
+  const data = {
+    webHookType: "pricechange",
+    secret: secretCode,
+    publisher: "indcli",
+  };
   const handleSubmit = () => {
     fetch("https://localhost:7101/api/Subscriber", {
       method: "POST",
@@ -53,10 +57,7 @@ function App() {
     setOption(Number(e.target.value));
   };
 
-  const options = [
-    { id: 0, label: "pricechange" },
-    { id: 1, label: "addnewclimate" },
-  ];
+  const options = [{ id: 0, label: "pricechange" }];
 
   return (
     <div className="app-container">
@@ -99,6 +100,12 @@ function App() {
                 Submit
               </button>
             </div>
+            {sucess && (
+              <div>
+                <p> Json Preview </p>
+                <pre>{JSON.stringify(data)}</pre>
+              </div>
+            )}
           </div>
         </div>
       </div>
